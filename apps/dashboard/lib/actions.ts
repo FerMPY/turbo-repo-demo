@@ -4,7 +4,7 @@ import { revalidatePath } from "next/cache";
 import { updateProduct } from "@workspace/api/";
 
 export async function updateAction(
-  state: any,
+  state: unknown,
   { productId, formData }: { productId: string; formData: FormData }
 ) {
   const name = formData.get("name");

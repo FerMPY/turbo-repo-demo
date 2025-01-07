@@ -1,5 +1,5 @@
 const BASEURL =
-  process.env.NODE_ENV === "production"
+  process.env.NODE_ENV === "production" && process.env.VERCEL
     ? `https://${process.env.VERCEL_URL}:3002`
     : "http://localhost:3002";
 

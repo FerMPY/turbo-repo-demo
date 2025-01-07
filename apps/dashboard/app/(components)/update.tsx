@@ -15,7 +15,7 @@ export function UpdateSection({
   name: string;
   inventory_count: number;
 }) {
-  const updateActionWithId = (state: any, formData: FormData) =>
+  const updateActionWithId = (state: unknown, formData: FormData) =>
     updateAction(state, { productId, formData });
 
   const [state, formAction, pending] = useActionState(updateActionWithId, null);
