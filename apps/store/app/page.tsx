@@ -10,12 +10,12 @@ import { getAllProducts } from "@workspace/api";
 
 export default async function StorePage() {
   const products = await getAllProducts();
-  console.log(products);
+
   return (
     <div className="container mx-auto p-4 space-y-10">
       <h1 className="text-2xl font-bold">E-Commerce Store</h1>
       <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-4">
-        {products.map((product) => (
+        {products?.map((product) => (
           <Card key={product.id}>
             <CardHeader>
               <CardTitle>{product.name}</CardTitle>

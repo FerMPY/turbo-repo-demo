@@ -37,11 +37,12 @@ export async function getAllProducts() {
   }
 
   return res.json() as Promise<
-    {
-      name: string;
-      id: string;
-      inventory_count: number;
-    }[]
+    | {
+        name: string;
+        id: string;
+        inventory_count: number;
+      }[]
+    | undefined
   >;
 }
 
