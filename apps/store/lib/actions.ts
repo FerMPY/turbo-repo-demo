@@ -4,7 +4,7 @@ import { purchaseProduct } from "@workspace/api";
 import { revalidatePath } from "next/cache";
 
 export async function purchaseAction(
-  state: any,
+  state: unknown,
   { productId, formData }: { productId: string; formData: FormData }
 ) {
   const quantity = formData.get("quantity");

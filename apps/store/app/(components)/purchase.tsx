@@ -5,7 +5,7 @@ import { Input } from "@workspace/ui/components/input";
 import { useActionState } from "react";
 
 export function PurchaseSection({ productId }: { productId: string }) {
-  const purchaseActionWithId = (state: any, formData: FormData) =>
+  const purchaseActionWithId = (state: unknown, formData: FormData) =>
     purchaseAction(state, { productId, formData });
 
   const [state, formAction, pending] = useActionState(

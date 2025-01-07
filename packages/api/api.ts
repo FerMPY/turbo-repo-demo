@@ -8,64 +8,78 @@ export async function updateProduct(
   name: FormDataEntryValue | null,
   inventory_count: FormDataEntryValue | null
 ) {
-  const res = await fetch(`${BASEURL}/api/inventory/update-product`, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-      productId: productId,
-      name: name,
-      inventory_count: inventory_count,
-    }),
-  });
+  try {
+    const res = await fetch(`${BASEURL}/api/inventory/update-product`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        productId: productId,
+        name: name,
+        inventory_count: inventory_count,
+      }),
+    });
 
-  return res.json() as Promise<{
-    error?: string;
-    name?: string;
-    id?: string;
-    inventory_count?: number;
-    success?: boolean;
-  }>;
+    return res.json() as Promise<{
+      error?: string;
+      name?: string;
+      id?: string;
+      inventory_count?: number;
+      success?: boolean;
+    }>;
+  } catch (error) {
+    console.log(error);
+    return null;
+  }
 }
 
 export async function getAllProducts() {
-  const res = await fetch(`${BASEURL}/api/inventory`, {});
+  try {
+    const res = await fetch(`${BASEURL}/api/inventory`, {});
+    if (!res.ok) {
+      throw new Error("Failed to fetch inventory");
+    }
 
-  if (!res.ok) {
-    throw new Error("Failed to fetch inventory");
+    return res.json() as Promise<
+      | {
+          name: string;
+          id: string;
+          inventory_count: number;
+        }[]
+      | undefined
+    >;
+  } catch (error) {
+    console.log(error);
+    return null;
   }
-
-  return res.json() as Promise<
-    | {
-        name: string;
-        id: string;
-        inventory_count: number;
-      }[]
-    | undefined
-  >;
 }
 
 export async function purchaseProduct(
   productId: string,
   quantity: FormDataEntryValue | null
 ) {
-  const res = await fetch(`${BASEURL}/api/inventory/update-inventory`, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-      productId: productId,
-      quantity: quantity,
-    }),
-  });
+  try {
+    const res = await fetch(`${BASEURL}/api/inventory/update-inventory`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        productId: productId,
+        quantity: quantity,
+      }),
+    });
 
-  return res.json() as Promise<{
-    error?: string;
-    name?: string;
-    id?: string;
-    inventory_count?: number;
-    success?: boolean;
-  }>;
+    return res.json() as Promise<{
+      error?: string;
+      name?: string;
+      id?: string;
+      inventory_count?: number;
+      success?: boolean;
+    }>;
+  } catch (error) {
+    console.log(error);
+    return null;
+  }
 }
