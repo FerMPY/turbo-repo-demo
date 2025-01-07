@@ -1,0 +1,15 @@
+{
+  "name": "@workspace/api",
+  "version": "0.0.0",
+  "private": true,
+  "license": "PROPRIETARY",
+  "publishConfig": {
+    "access": "public"
+  },
+  "exports": {
+    ".": "./api.ts"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.5"
+  }
+}

@@ -6,22 +6,7 @@ import {
   CardFooter,
 } from "@workspace/ui/components/card";
 import { PurchaseSection } from "./(components)/purchase";
-
-async function getAllProducts() {
-  const res = await fetch("http://localhost:3002/api/inventory", {});
-
-  if (!res.ok) {
-    throw new Error("Failed to fetch inventory");
-  }
-
-  return res.json() as Promise<
-    {
-      name: string;
-      id: string;
-      inventory_count: number;
-    }[]
-  >;
-}
+import { getAllProducts } from "@workspace/api";
 
 export default async function StorePage() {
   const products = await getAllProducts();
