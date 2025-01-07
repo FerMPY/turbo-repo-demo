@@ -1,31 +1,43 @@
-# shadcn/ui monorepo template
+# Turbo Repo Demo
 
-This template is for creating a monorepo with shadcn/ui.
+A demonstration repository for TurboRepo.
 
-## Usage
+##Overview
+
+This monorepo contains three simple projects:
+
+- **Inventory Service**: Built with Node.js and Express, this service manages inventory data.
+- **Store**: A simple web application showcasing the store functionality.
+- **Dashboard**: A web application providing an overview of the service's functionality.
+
+These projects are minimal examples designed to demonstrate how services work together in a monorepo setup.
+
+## Getting Started
+
+### Clone the Repository
 
 ```bash
-pnpm dlx shadcn@latest init
+git clone <url-here>
 ```
 
-## Adding components
+### Install Dependencies
 
-To add components to your app, run the following command at the root of your `web` app:
+Ensure you have pnpm installed. Then, run:
 
 ```bash
-pnpm dlx shadcn@latest add button -c apps/web
+pnpm install
 ```
 
-This will place the ui components in the `packages/ui/src/components` directory.
+### Start the Development Environment
 
-## Tailwind
+To start the development environment:
 
-Your `tailwind.config.ts` and `globals.css` are already set up to use the components from the `ui` package.
-
-## Using components
-
-To use the components in your app, import them from the `ui` package.
-
-```tsx
-import { Button } from "@workspace/ui/components/ui/button"
+```bash
+pnpm dev
 ```
+
+## Features
+
+- Organized monorepo structure using TurboRepo.
+- Shared code between services for consistency.
+- Efficient development workflow with pnpm and TurboRepo.
